@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Errors Assignment</title>
+    <style>
+        /* General page style layout */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f9fa;
+            color: #333;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        /* Wrapper for the assignment paper */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border: 1px solid #e1e4e6;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Inner container fix to prevent double padding issues */
+        .container .container {
+            padding: 20px 0;
+            box-shadow: none;
+            border: none;
+            background: transparent;
+        }
+
+        /* Clear typographic hierarchy */
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            color: #34495e;
+            font-size: 20px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #475a6b;
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #4f5f6f;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #4f5f6f;
+        }
+
+        /* Highlight boxes for the 3 main categories */
+        .error-category {
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: #fafbfc;
+            border-radius: 4px;
+            border-left: 5px solid #cbd5e1;
+        }
+
+        .error-category h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        /* Specific side-border colors for category distinctness */
+        .syntax {
+            border-left-color: #e74c3c;
+            /* Red border */
+            background-color: #fdf3f2;
+        }
+
+        .runtime {
+            border-left-color: #f39c12;
+            /* Orange border */
+            background-color: #fef7ed;
+        }
+
+        .logical {
+            border-left-color: #2ecc71;
+            /* Green border */
+            background-color: #f1fbf5;
+        }
+
+        /* Code layout formatting */
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            font-size: 14px;
+            border-radius: 5px;
+            margin: 15px 0 25px 0;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        code {
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            background-color: #f1f3f5;
+            color: #d63384;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        /* Highlight tags inside the body text */
+        .highlight {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* Divider styling */
+        hr {
+            border: 0;
+            border-top: 1px solid #eaeded;
+            margin: 35px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Comprehensive Analysis of Error Types and Exception Handling in JavaScript</h1>
+
+        <h2>Introduction</h2>
+        <p>When developing software in JavaScript, encountering errors is an inevitable part of the lifecycle. An error
+            represents an abnormal state or unexpected behavior within a program that disrupts its smooth execution. In
+            JavaScript, errors are not just abstract concepts; they are actual objects containing detailed blueprints of
+            what went wrong, where it happened, and why. Understanding these errors deeply—from their root causes to the
+            way the engine processes them—is essential for writing robust, production-grade code.</p>
+
+        <hr>
+        <div class="container">
+            <h1>The Three Main Categories of JavaScript Errors</h1>
+            <p>Before looking at the official technical names, almost every error you encounter falls into one of these
+                three buckets:</p>
+
+            <div class="error-category syntax">
+                <h2>1. Syntax Errors (The "Grammar" Mistakes)</h2>
+                <p>This happens when you type something wrong, like forgetting a closing bracket <code
+                        style="background:#eee; padding: 2px 4px;">}</code> or misspelling a keyword. The code won't
+                    even start running because JavaScript doesn't understand your writing.</p>
+            </div>
+
+            <div class="error-category runtime">
+                <h2>2. Runtime Errors (The "Surprise" Mistakes)</h2>
+                <p>The code looks correct, so it starts running. But while it is running, it hits a line it cannot
+                    complete—like trying to call a function that does not exist. The program will suddenly crash here.
+                </p>
+            </div>
+
+            <div class="error-category logical">
+                <h2>3. Logical Errors (The "Brain" Mistakes)</h2>
+                <p>The code runs perfectly from start to finish without crashing, but it gives you the wrong answer. For
+                    example, if you accidentally type <span class="highlight">+</span> instead of <span
+                        class="highlight">-</span> in a math formula. JavaScript won't show an error message for this;
+                    you just have to find the mistake yourself.</p>
+            </div>
+        </div>
+        <h2>1. The Lifecycles of an Error: Parsing vs. Runtime</h2>
+        <p>To truly understand how errors function, we must first separate them by <em>when</em> they happen. JavaScript
+            executes code in phases, and errors can strike during two completely different stages:</p>
+        <ul>
+            <li><strong>Compilation/Parsing Phase:</strong> Before JavaScript even attempts to execute a single line of
+                your code, a parser reads through the script to check if it follows the grammatical rules of the
+                language. If it finds a structural mistake (like a missing curly brace), it throws an error immediately
+                and refuses to run the file.</li>
+            <li><strong>Execution Phase (Runtime):</strong> If the parser finds no structural issues, the JavaScript
+                engine begins executing the script line by line. Runtime errors happen when the code looks grammatically
+                correct, but an instruction cannot physically be carried out during live execution (like trying to
+                access data that doesn't exist).</li>
+        </ul>
+
+        <hr>
+
+        <h2>2. JavaScript Error Objects</h2>
+        <p>When a runtime or parsing failure occurs, JavaScript creates an instance of a specific built-in error object.
+            All native error types inherit from a base <code>Error</code> class. Below are the core error types built
+            into the language:</p>
+
+        <h3>SyntaxError</h3>
+        <p>A <code>SyntaxError</code> occurs when the code violates the grammatical rules of JavaScript. Because the
+            engine cannot parse the code into an Abstract Syntax Tree (AST), a <code>SyntaxError</code> usually stops
+            the entire script from executing right at the beginning.</p>
+        <ul>
+            <li><strong>Common Causes:</strong> Unmatched parentheses or brackets, missing quotation marks, or using
+                reserved language keywords as variable names.</li>
+        </ul>
+        <pre>
+// This will throw a SyntaxError during parsing because the "if" condition is open
+if (userAge >= 18 {
+    console.log("Access granted");
+}
+</pre>
+
+        <h3>ReferenceError</h3>
+        <p>A <code>ReferenceError</code> occurs when your code attempts to reference or use a variable pointer that does
+            not exist in the current execution scope. It simply means JavaScript looked through its memory addresses and
+            found nothing matching that name.</p>
+        <ul>
+            <li><strong>Common Causes:</strong> Misspelling a variable name, trying to access a variable outside of its
+                functional or block scope, or trying to use a <code>let</code> or <code>const</code> variable before it
+                is initialized (known as the Temporal Dead Zone).</li>
+        </ul>
+        <pre>
+function calculateTotal() {
+    let tax = 0.15;
+}
+calculateTotal();
+// This throws a ReferenceError because 'tax' only exists inside the function scope
+console.log(tax); 
+</pre>
+
+        <h3>TypeError</h3>
+        <p>A <code>TypeError</code> happens when a variable exists, but you attempt to perform an operation on it that
+            is completely invalid for its data type. It is a failure of expected behavior.</p>
+        <ul>
+            <li><strong>Common Causes:</strong> Attempting to invoke a string or an object as if it were a function,
+                reassignment of a <code>const</code> variable, or trying to read a property from a value that evaluates
+                to <code>null</code> or <code>undefined</code>.</li>
+        </ul>
+        <pre>
+let userData = null;
+// Throws a TypeError: Cannot read properties of null (reading 'email')
+console.log(userData.email); 
+</pre>
+
+        <h3>RangeError</h3>
+        <p>A <code>RangeError</code> is thrown when a numeric value or an argument passes outside the boundaries of an
+            allowed or valid range.</p>
+        <ul>
+            <li><strong>Common Causes:</strong> Passing an invalid length to a new array constructor, or using numerical
+                methods like <code>.toFixed()</code> with an argument that is too large or negative.</li>
+        </ul>
+        <pre>
+// Throws a RangeError because an array cannot have a negative number of slots
+let scores = new Array(-5); 
+</pre>
+
+        <h3>URIError</h3>
+        <p>This error is specific to global URL handling functions in JavaScript. It occurs when helper functions like
+            <code>encodeURIComponent()</code> or <code>decodeURIComponent()</code> are given a poorly formatted or
+            illegal URI sequence.
+        </p>
+        <pre>
+// Throws a URIError because the percent sign is malformed and incomplete
+decodeURIComponent("%ch"); 
+</pre>
+
+        <h3>InternalError</h3>
+        <p>An <code>InternalError</code> happens when something breaks deep inside the JavaScript runtime engine itself.
+            It usually indicates that the script has demanded too many resources, overwhelming the browser or server
+            limits.</p>
+        <ul>
+            <li><strong>Common Cause:</strong> Uncontrolled recursion (a function that keeps calling itself forever),
+                which rapidly fills up the computer's memory stack.</li>
+        </ul>
+        <pre>
+function runForever() {
+    runForever(); // Infinite loop
+}
+runForever(); // Throws an error often called "Maximum call stack size exceeded"
+</pre>
+
+        <hr>
+
+        <h2>3. Anatomy of an Error Object</h2>
+        <p>Whenever any of the above errors occur, JavaScript instantiates a dynamic object. If you capture this object,
+            you can access three key native properties that help developers debug programs:</p>
+        <ul>
+            <li><strong>name:</strong> A string specifying the exact class of the error (e.g.,
+                <code>"TypeError"</code>).
+            </li>
+            <li><strong>message:</strong> A human-readable text string describing the specific nature of the crash
+                (e.g., <code>"assignment to constant variable"</code>).</li>
+            <li><strong>stack:</strong> The stack trace. This is an incredibly valuable string that details the exact
+                trail of function executions leading up to the crash, complete with file names, line numbers, and column
+                numbers.</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. Advanced Control Flow: Exception Handling</h2>
+        <p>To build resilient applications, developers cannot let a program completely crash every time an error
+            happens. JavaScript provides a structured control flow mechanism known as <code>try...catch...finally</code>
+            to intercept and manage exceptions gracefully.</p>
+        <pre>
+try {
+    // 1. The engine attempts to run this block line-by-line
+    let serverResponse = '{"name": "Avi"}';
+    let data = JSON.parse(serverResponse);
+    console.log(data.age.toString()); // If 'age' is undefined, this line throws a TypeError
+} catch (error) {
+    // 2. If an error occurs above, control immediately jumps here
+    // The error object is passed in as a parameter so we can review it safely
+    console.warn("Handled Error Gracefully: " + error.message);
+} finally {
+    // 3. This block is guaranteed to execute no matter what
+    // It runs whether an error happened or not, making it perfect for cleanup tasks
+    console.log("Closing open database connections.");
+}
+</pre>
+
+        <hr>
+
+        <h2>5. Custom Error Creation (The throw Statement)</h2>
+        <p>Native language errors are excellent for catching technical bugs, but applications also need to enforce
+            business logic rules. Developers can use the <code>throw</code> keyword to manually instantiate and throw
+            custom exceptions when a business rule is violated.</p>
+        <pre>
+class InsufficientFundsError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "InsufficientFundsError";
+    }
+}
+
+function processWithdrawal(amount, accountBalance) {
+    if (amount > accountBalance) {
+        // Manually interrupting the application flow because a business rule failed
+        throw new InsufficientFundsError("The requested amount exceeds your current balance.");
+    }
+    return accountBalance - amount;
+}
+</pre>
+
+        <hr>
+
+        <h2>Conclusion</h2>
+        <p>Errors should not be viewed merely as failures, but as highly informative tools for developers. By
+            understanding the distinction between parsing errors and runtime errors, mastering the specific categories
+            of built-in JavaScript error objects, and properly implementing <code>try...catch</code> safety nets,
+            developers can write clean, resilient code that recovers gracefully from unexpected situations instead of
+            breaking for the end-user.</p>
+
+    </div>
+
+</body>
+
+</html>
