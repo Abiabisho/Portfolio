@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description"
+        content="Professional expense tracker with balance protection, date-stamped history, and persistent storage">
+    <title>Expense Tracker | Smart Budget Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="tracker-container">
+        <header class="app-header">
+            <h2>📊 Expense Tracker</h2>
+            <p>Income / Expense selection · Date stamped</p>
+        </header>
+
+        <div class="balance-panel">
+            <div class="balance-label">TOTAL BALANCE</div>
+            <div id="totalBalanceDisplay" class="balance-number">$0.00</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card"><label> INCOME</label>
+                <div id="incomeTotal" class="stat-value income">+$0.00</div>
+            </div>
+            <div class="stat-card"><label> EXPENSE</label>
+                <div id="expenseTotal" class="stat-value expense">-$0.00</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section-title">➕ Record transaction</div>
+            <div id="errorMessage" class="error-banner"></div>
+
+            <!-- Income/Expense Selection Buttons (radio) -->
+            <div class="type-selector">
+                <div class="type-option income">
+                    <input type="radio" name="txnType" id="typeIncome" value="income" checked>
+                    <label for="typeIncome"> Income</label>
+                </div>
+                <div class="type-option expense">
+                    <input type="radio" name="txnType" id="typeExpense" value="expense">
+                    <label for="typeExpense"> Expense</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Description</label>
+                <input type="text" id="descInput" class="input-field" placeholder="e.g., Freelance, Groceries, Rent">
+            </div>
+
+            <div class="input-group">
+                <label>Amount (positive number)</label>
+                <input type="number" id="amountInput" class="input-field" placeholder="0.00" step="0.01">
+            </div>
+
+            <button class="btn-primary" id="addTransactionBtn">✅ Add transaction</button>
+
+            <div class="section-title" style="margin-top: 2rem;">📜 History (with date)</div>
+            <ul id="historyList" class="history-list"></ul>
+        </div>
+    </div>
+    <script src="expense.js"></script>
+
+    </script>
+</body>
+
+</html>
