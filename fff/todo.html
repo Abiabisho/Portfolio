@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>ToDo List</h1>
+            <div id="current-date"></div>
+        </header>
+
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button class="btn-add" onclick="addTask()">+</button>
+        </div>
+
+        <div class="status-bar">
+            <span class="pending-count" id="pending-stat">0 Tasks Left</span>
+            <span class="completed-count" id="done-stat">0 Completed</span>
+        </div>
+
+        <ul class="task-list" id="taskList">
+        </ul>
+
+        <span class="clear-all" onclick="clearCompleted()">Clear Finished Tasks</span>
+    </div>
+    <script src="todo.js"></script>
+</body>
+
+</html>
