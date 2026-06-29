@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Personal Portfolio">
+    <meta name="keywords" content="HTML, Portfolio, Web Developer">
+    <meta name="author" content="Your Name">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="www.avif" style="border-radius: 50px;">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('bk.png');
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            color: white;
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 60px;
+            font-weight: 700;
+
+            background: linear-gradient(190deg,
+                    #ffcc70,
+                    #ff6b6b,
+                    #6bcBff,
+                    #a66cff,
+                    #ffcc70,
+                    yellowgreen,
+                    hwb(172 4% 6%),
+                    red,
+                    orange);
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: gradientMove 6s linear infinite;
+        }
+
+        @keyframes gradientMove {
+
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+
+        }
+
+        header p {
+            font-size: 20px;
+            color: #ddd;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            text-align: center;
+            padding: 20px;
+            background: rgb(29, 26, 26);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffcc70;
+            margin: 15px;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* SECTIONS */
+
+        section {
+            width: 85%;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #ffcc70;
+            margin-bottom: 20px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #ffd98a;
+            margin-top: 20px;
+        }
+
+        /* PROFILE */
+
+        figure {
+            text-align: center;
+        }
+
+        figure img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #ffcc70;
+            box-shadow: 0 0 25px rgba(255, 204, 112, 0.6);
+            transition: 0.4s;
+        }
+
+        figure img:hover {
+            transform: scale(1.05);
+        }
+
+        figcaption {
+            margin-top: 15px;
+            color: #ddd;
+        }
+
+        <style>
+
+        /* GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* DEEP SEA BLUE GRADIENT BACKGROUND */
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #020617 100%);
+            background-attachment: fixed;
+            color: white;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        header h1 {
+            font-size: 60px;
+            font-weight: 700;
+            /* GOLD GRADIENT TEXT */
+            background: linear-gradient(90deg, #D4AF37, #fde68a, #b45309, #D4AF37);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 6s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+        }
+
+        header p {
+            font-size: 20px;
+            color: #cbd5e1;
+            letter-spacing: 2px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #D4AF37;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #D4AF37;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+            text-shadow: 0 0 10px #D4AF37;
+        }
+
+        /* SECTIONS */
+        section {
+            width: 85%;
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: 0.4s;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        h2 {
+            color: #D4AF37;
+            margin-bottom: 30px;
+            font-size: 36px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* PROFILE */
+        figure {
+            text-align: center;
+        }
+
+        figure img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #D4AF37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            transition: 0.5s;
+        }
+
+        figure img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* HOBBIES */
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        ul li {
+            background: #D4AF37;
+            color: black;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        ul li:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        /* SKILLS */
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        progress {
+            width: 100%;
+            height: 15px;
+            accent-color: #D4AF37;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        table th {
+            background: #D4AF37;
+            color: black;
+            padding: 20px;
+        }
+
+        table td {
+            padding: 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* CONTACT FORM */
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #D4AF37;
+        }
+
+        button {
+            background: #D4AF37;
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: white;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: #020617;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            header h1 {
+                font-size: 40px;
+            }
+
+            section {
+                width: 95%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Setegn Derebe</h1>
+        <p><strong>Web Developer</strong> | <em>Student</em> | Tech Enthusiast</p>
+        <p><strong>Accounting and Finance Student Trainee</strong> | <em>Student</em>| Motivated Learner </p>
+    </header>
+
+    <hr>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a> |
+        <a href="#skills">Skills</a> |
+        <a href="#education">Education</a> |
+        <a href="#projects">Projects</a> |
+        <a href="#experience">Experience</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <hr>
+
+    <!-- Profile Image -->
+    <section>
+        <figure>
+            <img src="waa.avif" alt="My Photo" width="150">
+            <figcaption>My Profile Picture</figcaption>
+        </figure>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+
+        <p>
+            Hello! My name is <strong>Setegn Derebe</strong>. I am an accounting and finance student trainee and an
+            aspiring web developer. I am passionate about learning new technologies and improving my skills in web
+            development. I am interested in learning practical workplace skills andimprovingprofessional experience. <em
+                <abbr title="HyperText Markup Language">HTML</abbr> learner and aspiring web developer.
+        </p>
+
+        <p>
+            i am currentlyworkingas student traineeandimproving my web development skills. I enjoy building websites and
+            learning new technologies. My goal is to become a full-stack developer and work on real-world projects
+            <q>full-stack developer</q> and work on real-world projects.
+        </p>
+
+        <details>
+            <summary>More about me</summary>
+            <p>
+                I am currently studying programming and improving my skills daily.
+                I like solving problems, designing layouts, and exploring new tools.
+            </p>
+        </details>
+
+        <h3>Hobbies</h3>
+        <ul>
+            <li>Coding</li>
+            <li>Watching tech blogs</li>
+            <li>Watching Podcasts</li>
+            <li>Reading tech Books</li>
+            <li>Gaming</li>
+            <li>Walking</li>
+            <li>Listening to Music</li>
+            <li>Biking a bicycle</li>
+            <li>Football</li>
+        </ul>
+
+    </section>
+
+    <hr>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>My Skills</h2>
+
+        <p>HTML</p>
+        <progress value="70" max="100"></progress>
+
+        <p>CSS</p>
+        <progress value="60" max="100"></progress>
+
+        <p>JavaScript</p>
+        <progress value="20" max="100"></progress>
+        <p>Peachtree</p>
+        <progress value="80" max="100"></progress>
+        <p>financial reporting</p>
+        <progress value="85" max="100"></progress>
+
+    </section>
+
+    <hr>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+
+        <table border="1">
+            <tr>
+                <th>Year</th>
+                <th>School</th>
+                <th>Qualification</th>
+            </tr>
+            <tr>
+                <td>2025</td>
+                <td>Bethel School</td>
+                <td>High School</td>
+            </tr>
+            <tr>
+                <td>2026</td>
+                <td>Admas University</td>
+                <td>Accounting and Finance</td>
+            </tr>
+        </table>
+
+    </section>
+
+    <hr>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <article>
+            <h3>Portfolio Website</h3>
+            <p>A personal portfolio using HTML.</p>
+        </article>
+
+        <article>
+            <h3>Calculator</h3>
+            <p>A simple try calculator using JavaScript.</p>
+        </article>
+
+    </section>
+
+    <hr>
+
+    <!-- Experience -->
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <p>I am a beginner but actively working on projects and improving my skills.</p>
+
+        <ol>
+            <li>Built static websites</li>
+            <li>Learned HTML structure</li>
+            <li>Practiced coding daily</li>
+        </ol>
+
+    </section>
+
+    <hr>
+
+    <!-- goal -->
+    <section id="goal">
+        <h2>career Goal</h2>
+        <p>My career goal is to become a full-stack developer and work on real-world projects. I am passionate about
+            learning new technologies and improving my skills in web development. </p>
+    </section>
+    <!-- section -->
+    <selection id="contact">
+        <h2>Contact Me</h2>
+
+    </selection>
+
+    <address>
+
+
+        Email: setegnderebe15@gmail.com <br>
+        Phone: 0922998963 <br>
+
+    </address>
+
+
+
+
+    <form>
+        <fieldset>
+
+
+            <label>Name:</label><br>
+            <input type="text"><br><br>
+
+            <label>Email:</label><br>
+            <input type="email"><br><br>
+
+            <label>Message:</label><br>
+            <textarea></textarea><br><br>
+
+            <button type="submit">Send Message</button>
+        </fieldset>
+    </form>
+
+    </section>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Setegn Derebe | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

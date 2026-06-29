@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+    <style>
+        /* --- General Reset & Layout --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a3a5f;
+            margin-top: 40px;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        /* --- Table 1 Styles --- */
+        .tab1 thead th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .red {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .green {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* --- Table 2 Styles --- */
+        .dark-blue {
+            background-color: #00204a;
+            color: white;
+        }
+
+        .blue-header {
+            background-color: #004080;
+            color: white;
+        }
+
+        .blue-light {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .teal {
+            background-color: #1abc9c;
+            color: white;
+        }
+
+        .purple {
+            background-color: #9b59b6;
+            color: white;
+        }
+
+        .gold {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .avg-row {
+            background-color: #fff9e6;
+            font-weight: bold;
+        }
+
+        .txt-excellent {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .txt-vgood {
+            color: #8e44ad;
+            font-weight: bold;
+        }
+
+        /* --- Remark Guide Styles --- */
+        .guide-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .guide-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a3a5f;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .guide-title::before,
+        .guide-title::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: #1a3a5f;
+            margin: 0 15px;
+        }
+
+        .guide-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .guide-box {
+            width: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .guide-header {
+            padding: 8px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .guide-body {
+            padding: 10px;
+            background: #fff;
+            font-weight: bold;
+        }
+
+        /* Guide Colors */
+        .bg-excellent {
+            background-color: #27ae60;
+        }
+
+        .bg-vgood {
+            background-color: #8e44ad;
+        }
+
+        .bg-good {
+            background-color: #f39c12;
+        }
+
+        .bg-bad {
+            background-color: #e74c3c;
+        }
+
+        .body-excellent {
+            background-color: #eafaf1;
+            color: #27ae60;
+        }
+
+        .body-vgood {
+            background-color: #f5eef8;
+            color: #8e44ad;
+        }
+
+        .body-good {
+            background-color: #fef5e7;
+            color: #f39c12;
+        }
+
+        .body-bad {
+            background-color: #fdedec;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align: center; color: #002060;">Student Course Result Table</h1>
+    <table class="table2">
+        <thead>
+            <tr>
+                <th rowspan="2" class="dark-blue">ID</th>
+                <th rowspan="2" class="blue-header">Name</th>
+                <th colspan="3" class="blue-light">Course</th>
+                <th rowspan="2" class="teal">Total <br>(300)</th>
+                <th rowspan="2" class="purple">Average <br>(100)</th>
+                <th rowspan="2" class="gold">Remarks</th>
+            </tr>
+            <tr class="blue-light">
+                <td style="font-weight:bold">HTML</td>
+                <td class="teal" style="font-weight:bold">OPERATE PC</td>
+                <td class="purple" style="font-weight:bold">CONNECT HARDWARE</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><strong>Abel</strong></td>
+                <td>70</td>
+                <td>85</td>
+                <td>95</td>
+                <td>250</td>
+                <td>83.33</td>
+                <td class="txt-excellent">Excellent</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><strong>Hana</strong></td>
+                <td>89</td>
+                <td>50</td>
+                <td>86</td>
+                <td>225</td>
+                <td>75.00</td>
+                <td class="txt-vgood">V.Good</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><strong>Saron</strong></td>
+                <td>70</td>
+                <td>85</td>
+                <td>95</td>
+                <td>250</td>
+                <td>83.33</td>
+                <td class="txt-excellent">Excellent</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><strong>Ali</strong></td>
+                <td>89</td>
+                <td>59</td>
+                <td>90</td>
+                <td>250</td>
+                <td>83.33</td>
+                <td class="txt-excellent">Excellent</td>
+            </tr>
+        </tbody>
+        <tfoot class="avg-row">
+            <tr>
+                <th colspan="2">AVERAGE (All Students)</th>
+                <td>79.50</td>
+                <td>67.50</td>
+                <td>90.50</td>
+                <td>237.50</td>
+                <td>79.17</td>
+                <td class="txt-vgood">V.Good</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="guide-container">
+        <div class="guide-title">REMARK GUIDE</div>
+        <div class="guide-grid">
+            <div class="guide-box">
+                <div class="guide-header bg-excellent">Excellent</div>
+                <div class="guide-body body-excellent">85 — 100</div>
+            </div>
+            <div class="guide-box">
+                <div class="guide-header bg-vgood">V. Good</div>
+                <div class="guide-body body-vgood">75 — 84</div>
+            </div>
+            <div class="guide-box">
+                <div class="guide-header bg-good">Good</div>
+                <div class="guide-body body-good">60 — 74</div>
+            </div>
+            <div class="guide-box">
+                <div class="guide-header bg-bad">Bad</div>
+                <div class="guide-body body-bad">Below 60</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
